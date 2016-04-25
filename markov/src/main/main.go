@@ -48,7 +48,7 @@ func buildMarkovChange(src string) map[string][]edge {
 	return result
 }
 
-func main()
+func main() {
 	//could be incomplete
 	fmt.Println("read from file")
 
@@ -58,6 +58,8 @@ func main()
 
 	line = string(byteArray[:])
 	markovMap := buildMarkovChange(line)
+
+
 
 	for _, val := range markovMap {
 		for keyIntern, edge := range val {
