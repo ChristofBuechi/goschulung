@@ -37,7 +37,7 @@ func main() {
 	val := myMap["second"]
 	fmt.Printf("The value is %d\n", val)
 
-	unknown, found := myMap["unknwon"]; if found {
+	unknown, found := myMap["unknown"]; if found {
 		fmt.Printf("The value is %d\n", unknown)
 	} else {
 		fmt.Println("The value is not found")
@@ -45,9 +45,10 @@ func main() {
 
 	var a []string
 
-//	for key, val := range myMap {
-//		a[val] = key
-//	}
+	//commented out because of following range operation with apend - otherwise array is to small
+/*	for key, val := range myMap {
+		a[val] = key
+	}*/
 
 	for key := range myMap {
 		a = append(a,key)
@@ -75,5 +76,19 @@ func main() {
 
 	dblPointer := pointerdoubleVal(kvPointer)
 	fmt.Printf("Key: %s, Val: %d\n", dblPointer.key, dblPointer.val)
+
+
+	for i:= 0; i < len(a); i++ {
+		kv = keyValPair{a[i], i}
+		fmt.Printf("KeyValuePair: Key: %s, Val: %d\n", kv.key, kv.val)
+	}
+
+	var vals []keyValPair
+	for key, val := range myMap {
+		vals = append(vals, keyValPair{key, val})
+	}
+
+
+
 }
 
