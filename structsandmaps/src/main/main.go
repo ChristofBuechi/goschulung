@@ -27,5 +27,23 @@ func main() {
 	} else {
 		fmt.Println("The value is not found")
 	}
+
+	var a []string
+
+//	for key, val := range myMap {
+//		a[val] = key
+//	}
+
+	for key := range myMap {
+		a = append(a,key)
+	}
+
+
+
+	for i:= 0; i < len(a); i++ {
+		fmt.Printf("Index: %d, Value %s\n", i, a[i])
+	}
+
+
 }
 
