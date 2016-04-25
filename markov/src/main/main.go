@@ -48,8 +48,7 @@ func main() {
 	//could be incomplete
 	fmt.Println("read from file")
 
-	//byteArray, err := ioutil.ReadFile("sampletext");
-	byteArray, err := ioutil.ReadFile("/home/christof/WebstormProjects/GoSchulung/markov/src/main/sampletext");
+	byteArray, err := ioutil.ReadFile("markov/src/main/sampletext");
 	check(err)
 
 	line := string(byteArray)

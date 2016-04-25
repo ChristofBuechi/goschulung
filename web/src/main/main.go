@@ -53,11 +53,7 @@ func process(s []byte) string {
 //}
 
 func start(w http.ResponseWriter, request *http.Request) {
-	fmt.Fprintf(w, "<html><head><title>Upload file</title></head><body>" +
-	"<form enctype=\"multipart/form-data\" action=\"http://127.0.0.1:8080/upload\" method=\"post\">" +
-	"<input type=\"file\" name=\"uploadfile\" />" +
-	"<input type=\"hidden\" name=\"token\" value=\"{{.}}\"/><input type=\"submit\" value=\"upload\" />" +
-	"</form></body></html>")
+	http.ServeFile(w, request, "web/src/main/upload.html")
 }
 
 func main() {
