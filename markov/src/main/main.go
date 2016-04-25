@@ -6,10 +6,6 @@ import (
 	"strings"
 )
 
-var (
-	line string
-)
-
 func check(e error) {
 	if e != nil {
 		panic(e)
@@ -52,18 +48,16 @@ func main() {
 	//could be incomplete
 	fmt.Println("read from file")
 
-	byteArray, err := ioutil.ReadFile("sampletext");
-	//byteArray, err := ioutil.ReadFile("/home/christof/WebstormProjects/GoSchulung/markov/src/main/sampletext");
+	//byteArray, err := ioutil.ReadFile("sampletext");
+	byteArray, err := ioutil.ReadFile("/home/christof/WebstormProjects/GoSchulung/markov/src/main/sampletext");
 	check(err)
 
-	line = string(byteArray[:])
+	line := string(byteArray)
 	markovMap := buildMarkovChange(line)
 
-
-
-	for _, val := range markovMap {
-		for keyIntern, edge := range val {
-			fmt.Printf("Char: %s -> Char: %s -> p=%g\n", string(keyIntern + 65), string(edge.id), edge.p)
+	for char, val := range markovMap {
+		for _, edge := range val {
+			fmt.Printf("Char: %s -> Char: %s -> p=%g\n", char, edge.id, edge.p)
 		}
 	}
 }
